@@ -1,0 +1,512 @@
+* {/*resetare stiluri implicite*/
+    margin:0;/*elimină spațiile exterioare implicite*/
+    padding:0;/*elimina spatiile interioare implicite*/
+    box-sizing: border-box;/*face ca dimensiunile elementului sa includa si marginile*/
+}
+body{/*stiluri generale pt pagina*/
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fff0f5;
+    color:#333;
+    margin: 0;
+    padding: 0;
+    padding-top: 70px;
+
+}
+.intro{
+    display:flex;
+    align-items: center; /* text și poză pe același nivel */
+    gap:60px; /* spațiu între poză și text */
+    padding:50px 20px;/*adaugă spațiu în interiorul unui element, între conținut și marginile lui,50px sus și jos (top + bottom) 20px stânga și dreapta (left + right)*/
+    flex-wrap:wrap; /* permite pe mobil să fie pe 2 rânduri */
+}
+.intro .image img{
+    width: 400px;        /* lățimea exactă */
+    height: auto;       /* înălțimea exactă */
+    object-fit: cover;   /* ajustează poza să nu se deformeze */
+    border-radius: 30px; /* colțuri mai rotunjite */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* adaugă umbră */
+     /* deplasare */
+    margin-left: 40px;  /* mută spre dreapta */
+    margin-top: -50px;   /* mută în jos */
+}
+.intro .image img:hover {
+    transform: scale(1.05);       /* zoom mic pe hover */
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+.intro .text {
+    max-width: 600px;
+    font-family: 'Edu NSW ACT Cursive', cursive;
+}
+/*Pentru mobil*/
+@media (max-width: 768px) {
+  .intro {
+    flex-direction: column;  /* imaginea sus, textul jos */
+    gap: 20px;              /* spațiu mai mic între ele pe mobil */
+    text-align: center;     /* text centrat pe mobil */
+  }
+
+  .intro .image img {
+    width: 90%;    /* poza se micșorează pe mobil */
+    margin: 0 auto;
+  }
+}
+
+#welcome-msg {
+  font-size: 1.8em;
+  font-weight: bold;
+  font-family: 'Edu NSW ACT Cursive', cursive;
+  white-space: pre-wrap;
+  display: inline-block;       /* cursor stabil */
+  border-right: 2px solid #b392ac;
+  padding-right: 5px;
+  line-height: 1.4;            /* ajustează spațiul între rânduri */
+  animation: blink-caret 0.75s step-end infinite;
+  vertical-align: bottom;       /* cursor la baza textului */
+}
+.typing {
+    animation: typing 2s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes blink-caret {
+   0%, 50% { border-color: #b392ac; } /* vizibil */
+  50%, 100% { border-color: transparent; } /* invizibil */
+}
+
+
+
+header{
+    background-color:#b392ac;/*fundalul zonei header*/
+    color: white;/*textul din header va fi alb*/
+    padding: 20px 40px;/*spatiul interior dedin header, îi dă spațiu dedesubt*/
+    margin-bottom: 10px;
+    display: flex;/*logo + meniu pe acelasi rand*/
+    justify-content: space-between;/*logo stanga, meniu dreapta*/
+    align-items: center;
+    gap: 20px; /* spațiu între meniu și selector */
+}
+header h1{
+    font-size: 24px;
+    font-family: 'Edu NSW ACT Cursive', cursive;
+    margin:0;
+}
+
+/*Meniu de navigare*/
+/* Linkuri meniului */
+
+header nav ul {
+  list-style: none;   /* scoate bulinele */
+  display: flex;      /* așază pe orizontală */
+  gap: 20px;          /* spațiu între butoane */
+  margin: 0;
+  padding: 0;
+}
+.navbar {
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;/*transforma elementul intr-un flex container*/
+    justify-content: space-between;/*spatiu egal intre elementele din interior*/
+    align-items: center;/*toate elementele din navbar sa fie egal centrate*/
+    padding: 10px 20px;/*spatiu interior intre elemente, bara nu atinge marginile ecranului*/
+
+}
+
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu li a:hover {
+    text-decoration: underline;
+   
+}
+.lang-switch select{
+    background-color: #fff;
+    color: #b392ac;
+    border: 2px solid #b392ac;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lang-switch select:hover {
+  background-color: #b392ac;
+  color: #fff;
+}
+/*Main-continut central*/
+main{
+    padding: 20px;
+    text-align: center;
+}
+main h2{
+    color:#b392ac;
+    margin-bottom: 10px;
+    font-size: 2.5em; /* faci textul mai mare */
+    font-family: 'Edu NSW ACT Cursive', cursive;
+}
+main p{
+    font-size: 1.5em;
+    font-family: 'Edu NSW ACT Cursive', cursive;
+}
+/* Container pentru toate casetele */
+.services-cards{
+    display: flex;
+    flex-wrap: wrap;/*face ca poza si textul sa se puna una sub alta pe mobil*/
+    gap: 20px;/*spatiu intre casete*/
+    justify-content: center;
+    margin-top: 20px;
+}
+.card{
+    background-color: white;
+    padding: 30px 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* umbră subtilă */;
+    text-align: center;
+    width: 200px;               /* lățimea casetei */
+    transition: transform 0.3s, box-shadow 0.3s; /* efect la hover */
+    cursor: pointer;
+}
+/* Hover efect */
+.card:hover {
+    transform: translateY(-5px);       /* ridicare ușoară */
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+.card h3{
+    color: #b392ac;
+    font-family: 'Edu NSW ACT Cursive', cursive;
+    font-size: 1.2em;
+}
+.galerie{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+.galerie .poza {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.galerie img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+
+.galerie img:hover {
+  transform: scale(1.1);
+  
+}
+.lucrari h2{
+  color: #b392ac;
+  font-size: 2.5em; /* faci textul mai mare */
+  font-family: 'Edu NSW ACT Cursive', cursive;
+  margin-top: 20px;
+}
+.despre-box {
+  position: relative;
+  max-width: 500px;
+  margin: 40px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.despre h2{
+  color: #b392ac;
+  font-size: 2.5em; /* faci textul mai mare */
+  font-family: 'Edu NSW ACT Cursive', cursive;
+  margin-top: 20px;
+}
+
+.despre-box img {
+  height: auto;
+  display: block;
+  max-height: 650px; /* limitează înălțimea imaginii */
+  width: 100%;      /* păstrează lățimea */
+
+}
+
+.despre-box .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4); /* fundal negru semi-transparent */
+}
+
+
+.despre-box .descriere h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  color: #fff;
+}
+
+.despre-box .descriere p {
+  font-size: 16px;
+  line-height: 1.4;
+}
+.despre-box .descriere,
+.despre-box .descriere2 {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  width: 90%;
+}
+
+.despre-box .descriere2 h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  color: #fff;
+}
+
+.despre-box .descriere2 p {
+  font-size: 16px;
+  line-height: 1.4;
+}
+/* Pentru ecrane mai mici de 768px */
+@media (max-width: 768px) {
+  .despre-box {
+    max-width: 90%;   /* poza să fie mai mică și să se potrivească ecranului */
+  }
+
+  .despre-box .descriere {
+    font-size: 14px;  /* text mai mic pe mobil */
+    padding: 15px;    /* mai puțin padding */
+    width: 95%;       /* să nu depășească containerul */
+  }
+
+  .despre-box .descriere h2 {
+    font-size: 18px;  /* titlul mai mic pe mobil */
+  }
+}
+.magictime {
+  animation-duration: 1.5s;   /* durata efectului */
+  animation-delay: 0.3s;      /* întârziere */
+}
+
+.preturi h2{
+  color: #b392ac;
+  font-size: 2.5em; /* faci textul mai mare */
+  font-family: 'Edu NSW ACT Cursive', cursive;
+  margin-top: 20px;
+}
+.preturi img {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* adaugă umbră */
+}
+section {
+  scroll-margin-top: 80px; /* înălțimea navbarului */
+}
+.recenzii {
+  padding: 50px 20px;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.recenzii h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.recenzie-box {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 150px;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.recenzie-buttons {
+  margin-top: 20px;
+}
+
+.recenzie-buttons button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.recenzie-buttons button:hover {
+  background: #444;
+}
+.recenzii h3{
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: normal;
+  font-family: 'Edu NSW ACT Cursive', cursive;
+}
+.contact {
+  padding: 50px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.contact p {
+  margin-bottom: 30px;
+}
+
+.email-link {
+  font-size: 1.2rem;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.email-link:hover {
+  text-decoration: underline;
+}
+
+.email-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: black;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.email-btn:hover {
+  background: #444;
+}
+/* Buton programare (colț dreapta jos) */
+.btn-programare {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: black;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.btn-programare:hover {
+  background: black;
+  transform: scale(1.05);
+}
+
+/* Modal (ascuns inițial) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+/* Conținut modal */
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: left;
+  position: relative;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* spațiu între elemente */
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+form input,
+form select,
+form button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+form button {
+  background: #b392ac;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background: #8a6d89;
+}
+
+
+/* Buton închidere */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
+footer{
+    background-color: #b392ac;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
